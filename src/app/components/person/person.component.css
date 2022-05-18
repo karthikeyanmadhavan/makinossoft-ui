@@ -1,0 +1,25 @@
+.submit-form {
+  max-width: 400px;
+  margin: auto;
+}
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+  .person-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .person-full-width {
+    width: 100%;
+  }
+  table {
+    width: 100%;
+  }
+  
+  th {
+    text-align: left;
+  }
