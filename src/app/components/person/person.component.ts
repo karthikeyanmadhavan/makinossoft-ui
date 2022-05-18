@@ -53,6 +53,35 @@ export class PersonComponent implements OnInit {
         });
   }
 
+  downloadFile(data:any) {    
+    const blob = new Blob([data], { type: 'application/json',  });
+    const url= window.URL.createObjectURL(blob);
+    //window.open(url);
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.className = "hide";
+    a.href = url;
+    a.download = 'persons.json';
+    a.click();
+    window.URL.revokeObjectURL(url);
+  }
+  download(){
+    this.personService.download().subscribe(
+        data => {
+          if(data.message)
+            alert(data.message);
+          this.downloadFile(data);          
+        },
+        error => {
+          error = error.error;
+          if(error.message){
+            alert(error.message);
+          }else if(error){
+            alert(error);
+          }
+        });
+  }
+
   getPersons(): void {
     this.personService.getAll()
       .subscribe(

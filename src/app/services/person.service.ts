@@ -16,6 +16,10 @@ export class PersonService {
     return this.http.get<ApiRespone<Person[]>>(`${environment.apiUrl}/person/list`);
   }
 
+  download(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/person/download`,{responseType: 'arraybuffer'});
+  }
+
   save(data: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/person/save`, data);
   }
